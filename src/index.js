@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { sequelize } from "./config/dbConn";
+import { run } from "./services/kafkaConsumer";
 
 dotenv.config();
 sequelize.authenticate
@@ -16,3 +17,5 @@ sequelize.authenticate
   .catch((err) => {
     console.log(err);
   });
+
+run().catch((err) => console.log(err));
