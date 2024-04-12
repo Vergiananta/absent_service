@@ -1,8 +1,8 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../config/dbConn";
+const DataTypes = require("sequelize");
+const sequelize = require("../config/dbConn");
 
-export const Absent = sequelize.define(
-  "absent",
+const Absence = sequelize.define(
+  "absence",
   {
     id: {
       type: DataTypes.UUIDV4,
@@ -22,11 +22,18 @@ export const Absent = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    updated: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   },
   {
-    timestamps: true,
-    paranoid: true,
-    tableName: "absent",
-    freezeTableName: true,
+    timestamps: false,
+    tableName: "absence",
   }
 );
+module.exports = Absence;
