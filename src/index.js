@@ -8,7 +8,7 @@ async function main() {
     .authenticate()
     .then(() => {
       subscriber().catch((err) => console.error(err));
-      server.listen(3000, "0.0.0.0", function () {
+      server.listen(3003, "0.0.0.0", function () {
         if (server.listening) {
         }
       });

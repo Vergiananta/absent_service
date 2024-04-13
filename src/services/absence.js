@@ -1,11 +1,9 @@
 const { Sequelize } = require("sequelize");
 const Absence = require("../model/Absence");
 
-const uuid = require("uuid");
 const User = require("../model/user");
 const Role = require("../model/role");
 
-const topicProduce = "absence-consumer";
 class AbsenceService {
   async findAllAbsenceEmployee(employeeId) {
     let result;
@@ -32,6 +30,8 @@ class AbsenceService {
 
   async findAbsenceToday(filter) {
     let result;
+    const today = new Date();
+
     const startOfDay = new Date(
       today.getFullYear(),
       today.getMonth(),
