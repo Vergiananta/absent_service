@@ -1,8 +1,12 @@
 const jwt = require("jsonwebtoken");
 async function listAbsenceByEmployee(req, res, service) {
-  const id = req.param.id;
-  let findListAbsence = await service.findAllAbsenceEmployee(id);
-  res.send(findListAbsence);
+  if (req.query.pageNo && req.query.rowPage) {
+    let findListAbsence = await service.findAllAbsenceEmployee(
+      req.query.pageNo,
+      req.query.rowPage
+    );
+    res.send({ data: findListAbsence });
+  }
 }
 
 async function findAbsenceToday(req, res, service) {

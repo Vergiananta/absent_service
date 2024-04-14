@@ -6,7 +6,7 @@ const absenceController = require("../controller/absent.controller");
 const tokenValidation = require("../middleware/token.validation");
 
 router.get(
-  "/list/:id",
+  "/list",
   (req, res, next) => tokenValidation(req, res, next, "ADMIN"),
   (req, res, next) => {
     absenceController.listAbsenceByEmployee(req, res, absenceService);
