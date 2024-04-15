@@ -51,6 +51,7 @@ class AbsenceService {
           },
         },
       });
+      console.log(result);
     } catch (error) {
       console.error(error);
     }

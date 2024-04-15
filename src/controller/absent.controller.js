@@ -18,7 +18,7 @@ async function findAbsenceToday(req, res, service) {
       request.userId = decoded.id;
     });
     let absenceToday = await service.findAbsenceToday(request);
-    res.send(absenceToday);
+    res.send({ data: absenceToday });
   }
 }
 module.exports = { listAbsenceByEmployee, findAbsenceToday };
