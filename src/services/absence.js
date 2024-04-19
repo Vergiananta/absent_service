@@ -5,7 +5,7 @@ const User = require("../model/user");
 const Role = require("../model/role");
 
 class AbsenceService {
-  async findAllAbsenceEmployee(offset, limit) {
+  async findAllAbsenceEmployee() {
     let result;
     try {
       result = await Absence.findAll({
@@ -17,8 +17,6 @@ class AbsenceService {
             attributes: ["name"],
           },
         },
-        offset: Number(offset),
-        limit: Number(limit),
         order: [["created", "DESC"]],
       });
     } catch (e) {
